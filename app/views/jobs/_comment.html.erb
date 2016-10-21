@@ -1,0 +1,6 @@
+<%= form_for [@job, @new_comment] do |f| %>
+  <%= f.label :comment %>
+  <p><%= f.text_area :content %></p>
+
+  <%= f.submit %>
+<% end %>
