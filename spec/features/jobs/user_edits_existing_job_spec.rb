@@ -9,7 +9,7 @@ describe "User edits an existing job" do
     fill_in "job[title]", with: "New Title"
     click_button "Update"
 
-    expect(current_path).to eq("/companies/#{Company.last.id}/jobs")
+    expect(current_path).to eq("/companies/#{Company.last.id}/jobs/#{job.id}")
     expect(page).to have_content("New Title")
     expect(page).to_not have_content("Job Title")
   end
