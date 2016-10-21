@@ -1,19 +1,18 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:edit, :update, :destroy]
   before_action :set_company, only: [:index, :new, :create]
+  before_action :set_categories, only: [:new, :create, :edit]
 
   def index
     @jobs = @company.jobs
   end
 
   def new
-    @categories = Category.all
     @job = Job.new()
   end
 
   def create
     @job = @company.jobs.new(job_params)
-    @categories = Category.all
     if @job.save
       flash[:success] = "You created #{@job.title} at #{@company.name}"
       redirect_to company_job_path(@company, @job)
@@ -27,7 +26,6 @@ class JobsController < ApplicationController
   end
 
   def edit
-    @categories = Category.all
   end
 
   def update
@@ -57,5 +55,9 @@ class JobsController < ApplicationController
 
   def set_company
     @company = Company.find(params[:company_id])
+  end
+
+  def set_categories
+    @categories = Category.all
   end
 end
