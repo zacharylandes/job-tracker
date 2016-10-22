@@ -39,10 +39,14 @@ class CompaniesController < ApplicationController
 
   def destroy
     company = Company.find(params[:id])
-    company.delete
-
-    flash[:success] = "#{company.name} was successfully deleted!"
-    redirect_to companies_path
+    if company.jobs.count == 0
+      company.delete
+      flash[:success] = "#{company.name} was successfully deleted!"
+      redirect_to companies_path
+    else
+      flash[:error] = "All jobs must be deleted from #{company.name} before the company can be deleted!"
+      redirect_to companies_path
+    end
   end
 
 
