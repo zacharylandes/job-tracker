@@ -1,8 +1,8 @@
-<p>Jobs by Level of Interest: <br />
+<h2>Jobs by Level of Interest: </h2>
   <% Job.format_interest.each do |elem| %>
-    <p><%= elem %></p>
+    <%= elem %><br />
   <% end %>
-<p>Top Three Jobs by level of interest</p>
+<h2>Top Three Jobs by level of interest</h2>
   <% Job.top_three_by_interest.each do |elem| %>
     <p><%= elem %></p>
   <% end %>

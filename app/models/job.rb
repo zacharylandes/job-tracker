@@ -16,13 +16,13 @@ class Job < ActiveRecord::Base
   end
 
   def self.average_level_of_interest
-    group(:company_id).average(:level_of_interest).sort_by {|k, v| v}.reverse
+    group(:company_id).average(:level_of_interest).sort_by {|k, v| v }.reverse
   end
 
   def self.top_three_by_interest
     final = average_level_of_interest.map do |key, value|
       company = Company.find(key)
-      "#{company.name}: #{value.to_i}"
+      "#{company.name}: #{value.to_f.round(2)}"
     end[0..2]
   end
 
