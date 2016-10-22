@@ -6,3 +6,14 @@
   <% Job.top_three_by_interest.each do |elem| %>
     <p><%= elem %></p>
   <% end %>
+<h2>Jobs by Location</h2>
+
+
+<% Company.companies_by_location.each_pair do |location, companies| %>
+  <p><%= link_to location, "/companies?location=#{location}" %>:
+    <% total = 0 %>
+    <% companies.each do |company| %>
+      <% total += company.jobs.count %>
+    <% end %>
+    <%= total %></p>
+<% end %>

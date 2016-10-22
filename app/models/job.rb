@@ -3,10 +3,10 @@ class Job < ActiveRecord::Base
 
   belongs_to :company
   belongs_to :category
-  has_many :comments
+  has_many :comments, dependent: :delete_all
 
   def self.jobs_by_level_of_interest
-    group(:level_of_interest).count
+    group(:level_of_interest).count.sort_by {|k, v| k }
   end
 
   def self.format_interest
@@ -22,8 +22,7 @@ class Job < ActiveRecord::Base
   def self.top_three_by_interest
     final = average_level_of_interest.map do |key, value|
       company = Company.find(key)
-      "#{company.name}: #{value.to_f.round(2)}"
+      "#{company.name}: #{value.to_f.round(1)}"
     end[0..2]
   end
-
 end

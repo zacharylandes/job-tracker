@@ -4,7 +4,7 @@ class JobsController < ApplicationController
   before_action :set_categories, only: [:new, :create, :edit]
 
   def index
-    @jobs = @company.jobs
+    @jobs = @company.jobs.all.order(interest_params)
     @contact = Contact.new
   end
 
@@ -25,7 +25,6 @@ class JobsController < ApplicationController
   def show
     @job = Job.find(params[:id])
     @comment = Comment.new
-    #  @comment.job_id = @job.id
   end
 
   def edit
@@ -49,6 +48,10 @@ class JobsController < ApplicationController
 
   def job_params
     params.require(:job).permit(:title, :description, :level_of_interest, :category_id)
+  end
+
+  def interest_params
+    return "level_of_interest" if params[:sort] == "interest"
   end
 
   def set_job
