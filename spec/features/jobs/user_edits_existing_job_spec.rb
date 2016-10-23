@@ -10,7 +10,7 @@ describe "User edits an existing job" do
     expect(page).to have_select('job[category_id]', selected: 'cats')
 
     fill_in "job[title]", with: "New Title"
-    click_button "Update"
+    click_button "Submit"
 
     expect(current_path).to eq("/companies/#{Company.last.id}/jobs/#{job.id}")
     expect(page).to have_content("cats")

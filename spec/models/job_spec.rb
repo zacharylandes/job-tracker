@@ -38,4 +38,17 @@ describe Job do
       expect(job).to respond_to(:comments)
     end
   end
+
+  describe ".jobs_by_level_of_interest" do
+    it "returns an array" do
+      Job.create(title: "Software", level_of_interest: 70, description: "Wahooo")
+      expect(Job.jobs_by_level_of_interest).to be_a Array
+    end
+
+    it "returns number of jobs with each level of interest" do
+      Job.create(title: "Software", level_of_interest: 70, description: "Wahooo")
+      Job.create(title: "Softbear", level_of_interest: 70, description: "kgajhfk")
+      expect(Job.jobs_by_level_of_interest).to include [70, 2]
+    end
+  end
 end
