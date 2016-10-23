@@ -1,8 +1,10 @@
 <div class = "text-center" style="padding-top: 60px">
   <div class="col-md-4">
-    <div class="panel panel-default" style="background-color: #ffe0e0">
-      <h2>Jobs by Level of Interest: </h2>
-      <div class="panel-body">
+    <div class="panel panel-default">
+      <div class="panel-header">
+        <h2>Jobs by Level of Interest: </h2>
+      </div>
+      <div class="panel-body"  style="background-color: #ffe0e0">
         <div class="col-md-6">
           <h4>Level of Interest</h4>
         </div>
@@ -22,11 +24,11 @@
   </div>
 
   <div class="col-md-4">
-    <div class="panel panel-default" style="background-color: #ecffe0">
+    <div class="panel panel-default">
       <div class="panel-header">
         <h2>Top Three Companies by Average Level of Interest</h2>
       </div>
-      <div class="panel-body">
+      <div class="panel-body" style="background-color: #ecffe0">
         <div class="col-md-6">
           <h4>Company</h4>
         </div>
@@ -46,12 +48,14 @@
   </div>
 
   <div class="col-md-4">
-    <div class="panel panel-default" style="background-color: #e0fffb">
+    <div class="panel panel-default">
       <h2>Jobs by Location</h2>
+      <div class="panel-body" style="background-color: #e0fffb">
       <% Company.jobs_by_location.each do |city, count| %>
         <h4><%= link_to city, "/companies?location=#{city}" %>: <%= count %></h4>
-      <% end %>
+      <% end %><hr>
+      <h4><%= link_to "View all companies sorted by location", "/companies/?sort=location" %></h4>
     </div>
-    <h4><%= link_to "View all companies sorted by location", "/companies/?sort=location" %></h4>
+    </div>
   </div>
 </div>
