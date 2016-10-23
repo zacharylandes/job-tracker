@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe "User sees the home screen" do
-  scenario "a user sees the home screen" do
+describe "User sees the home page" do
+  scenario "a user sees the home page" do
 
     visit root_path
 
