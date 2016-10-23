@@ -16,8 +16,9 @@
 
 <div class="col-md-6"><div class="panel panel-default" style="padding-bottom: 10px"><div class="panel-heading"><h4>Add a comment:</h4></div>
 
-<div class="panel-body"><%= form_for @comment do |f| %>
-  <!-- <%= f.label :comment %> -->
+<div class="panel-body">
+  <%= form_for @comment do |f| %>
+
   <%= f.text_area :content %></p>
   <%= hidden_field(:job, :id) %>
 

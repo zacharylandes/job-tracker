@@ -14,3 +14,15 @@
  *= require_self
  *= require bootstrap.min
  */
+
+.light{
+  font-weight: lighter;
+}
+a{
+  color: #40847c;
+}
+ a:hover{
+   color: #0a3d3f;
+   text-decoration: none;
+   font-style: oblique;
+ }

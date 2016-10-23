@@ -1,12 +1,12 @@
 <div class = "text-center" style="padding-top: 60px">
-<h1>All Jobs for <strong><%= @company.name %></strong></h1>
-<h3><%= link_to "Sort by level of interest", "jobs/?sort=interest" %>  •  <%= link_to "New job at #{@company.name}", new_company_job_path %></h3>
+<h1>All Jobs for <strong><%= @company.name %></strong>
+<small class="light"><%= link_to "Sort by level of interest", "jobs/?sort=interest" %>  |  <%= link_to "New job at #{@company.name}", new_company_job_path %></small><h1>
 
 <% @jobs.each do |job| %>
 
     <div class="row well">
-    <div class=job_<%= job.id %>><h4><%= link_to "#{job.title} at #{job.company.name}", company_job_path(@company, job) %></h4>
-    <p><%= link_to "Edit", edit_company_job_path(@company, job), class: "btn btn-default" %> <%= link_to "Delete", company_job_path(@company, job), method: :delete, class: "btn btn-danger" %></p></div>
+    <div class=job_<%= job.id %>><h3 class="light"><%= link_to "#{job.title} at #{job.company.name}", company_job_path(@company, job) %>
+    <%= link_to "Edit", edit_company_job_path(@company, job), class: "btn btn-default" %> <%= link_to "Delete", company_job_path(@company, job), method: :delete, class: "btn btn-danger" %></h3></div>
     </div>
 
 <% end %>
