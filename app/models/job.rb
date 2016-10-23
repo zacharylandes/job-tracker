@@ -11,7 +11,7 @@ class Job < ActiveRecord::Base
 
   def self.format_interest
     final = jobs_by_level_of_interest.map do |key, value|
-      "Jobs with level of interest marked #{key}: #{value}"
+      "#{value} job(s) with level of interest #{key}"
     end
   end
 

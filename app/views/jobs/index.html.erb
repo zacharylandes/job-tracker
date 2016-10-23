@@ -1,16 +1,19 @@
-All Jobs for <strong><%= @company.name %></strong>
+<div class = "text-center" style="padding-bottom: 60px">
+<h1>All Jobs for <strong><%= @company.name %></strong></h1>
 
 <% @jobs.each do |job| %>
-  <ul>
-    <li class=job_<%= job.id %>><p><%= link_to "#{job.title} at #{job.company.name}", company_job_path(@company, job) %></p>
-    <p><%= link_to "Edit", edit_company_job_path(@company, job) %> <%= link_to "Delete", company_job_path(@company, job), method: :delete %></p></li>
-  </ul>
+
+    <div class="row well">
+    <div class=job_<%= job.id %>><h4><%= link_to "#{job.title} at #{job.company.name}", company_job_path(@company, job) %></h4>
+    <p><%= link_to "Edit", edit_company_job_path(@company, job), class: "btn btn-default" %> <%= link_to "Delete", company_job_path(@company, job), method: :delete, class: "btn btn-danger" %></p></div>
+    </div>
+
 <% end %>
 
-<p><%= link_to "New job at #{@company.name}", new_company_job_path %>
 
-  <p>Add a contact for <%= @company.name %>:
-
+  <div class="container">
+  <div class="col-md-6">
+  <h4>Add a contact for <%= @company.name %>:</h4>
   <%= form_for @contact do |f| %>
     <%= f.label :first_name %>
     <%= f.text_field :first_name %></p>
@@ -24,14 +27,18 @@ All Jobs for <strong><%= @company.name %></strong>
     <%= f.label :email %>
     <%= f.text_field :email %></p>
     <%= hidden_field(:company, :id) %>
+    <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+     Create Contact
+    <% end %>
+  <% end %></div>
 
-    <%= f.submit %>
-  <% end %>
-
-  <p>Contacts</p>
+  <div class="col-md-6"><h4>Contacts</h4>
 
   <% @company.contacts.each do |contact| %>
     <p><%= contact.first_name %> <%= contact.last_name %>,
     <%= contact.position %>,
     <%= contact.email %></p>
-  <% end %>
+  <% end %></div>
+
+</div>
+<h3 class="text-center"><%= link_to "New job at #{@company.name}", new_company_job_path %></h3>

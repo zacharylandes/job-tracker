@@ -1,16 +1,22 @@
+<div class = "text-center" style="padding-bottom: 50px">
+  <div class="row well">
 <%= form_for [@company, @job] do |f| %>
   <%= f.label :title %>
-  <%= f.text_field :title %>
+  <%= f.text_field :title %></p>
 
   <%= f.label :description %>
-  <%= f.text_field :description %>
+  <%= f.text_field :description %></p>
 
   <%= f.label :level_of_interest %>
-  <%= f.number_field :level_of_interest %>
+  <%= f.number_field :level_of_interest %></p>
 
-  <%= f.collection_select :category_id, @categories.order(:id),:id,:title, options = {:prompt => "Category"}%>
+  <%= f.collection_select :category_id, @categories.order(:id),:id,:title, options = {:prompt => "Category"}%></p>
 
-  <%= f.submit %>
+  <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+   Submit
+  <% end %>
 <% end %>
+</div>
 
 <p><%= link_to "New Category", new_category_path %></p>
+</div>

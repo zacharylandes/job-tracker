@@ -1,9 +1,14 @@
-<h3>All Companies</h3>
+<div class = "text-center" style="padding-bottom: 50px">
+<h1>All Companies</h1>
 
 <% @companies.each do |company| %>
   <ul class=company_<%= company.id %>>
-    <%= link_to company.name, company_path(company) %> - <%= company.city %><br>
-    <%= link_to "Edit", edit_company_path(company) %>
-    <%= link_to "Delete", company_path(company), method: "delete" %>
+    <div class="row well">
+    <h3><%= link_to company.name, company_path(company) %> <small><%= company.city %></small></h3>
+    <%= link_to "Edit", edit_company_path(company), :class => "btn btn-default" %>
+    <%= link_to "Delete", company_path(company), method: "delete", :class => "btn btn-danger"  %>
+    </div>
   </ul>
 <% end %>
+<p><%= link_to "New Company", new_company_path %></p>
+</div>
