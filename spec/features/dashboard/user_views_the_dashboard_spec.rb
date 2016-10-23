@@ -19,7 +19,7 @@ describe "User sees the dashboard" do
     expect(page).to have_content("70")
     expect(page).to have_content("2")
     expect(page).to have_content("Top Three Companies")
-    expect(page).to have_link("ESPN", href: company_path(company))
+    expect(page).to have_content("ESPN")
     expect(page).to have_content("80")
     expect(page).to have_link("Denver", href: "/companies?location=Denver")
   end
