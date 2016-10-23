@@ -29,7 +29,11 @@
 
 <div class="col-md-6"><div class="panel panel-default"><div class="panel-heading"><h4>Comments:</h4></div>
 <% @job.comments.order_comments.each do |comment| %>
-  <div class="panel-body"><h4><small><%= comment.created_at.to_date %></small><p><p><%= comment.content %></p></p></h4>
-    <%= link_to "Delete", comment_path(comment), method: :delete, class: "btn btn-danger" %></div>
-<% end %></div></div>
+  <div class="panel-body">
+    <h4><small><%= comment.created_at.to_date %></small><p><p><%= comment.content %></p></p></h4>
+    <%= link_to "Delete", comment_path(comment), method: :delete, class: "btn btn-danger" %>
+  </div>
+<% end %>
+</div>
+</div>
 </div>

@@ -40,8 +40,8 @@
 
   <% @company.contacts.each do |contact| %>
     <div class="panel-body"><p><%= contact.first_name %> <%= contact.last_name %></p>
-    <%= contact.position %></p>
-    <%= contact.email %></p>
+    <%= contact.position %> at <%= @company.name %></p>
+    <%= link_to contact.email, "mailto:#{contact.email}" %></p>
     <%= link_to "Delete Contact", contact_path(contact), method: :delete, class: "btn btn-danger" %></div>
   <% end %></div></div>
 
