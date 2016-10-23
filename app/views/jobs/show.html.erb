@@ -1,6 +1,6 @@
 <div class = "text-center" style="padding-top: 50px">
   <div class="row well">
-    <h3><%= @job.title %></h3>
+    <h2 class="light"><%= @job.title %></h2>
       <strong>Description:</strong> <%= @job.description %><br>
       <strong>Level of Interest:</strong> <%= @job.level_of_interest %><br>
       <strong>Company:</strong> <%= link_to @job.company.name, company_path(@job.company) %><br>
