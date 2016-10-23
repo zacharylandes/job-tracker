@@ -10,6 +10,14 @@ class ContactsController < ApplicationController
     end
   end
 
+  def destroy
+    @contact = Contact.find(params[:id])
+    company = @contact.company
+    @contact.destroy
+    flash[:success] = "Contact was successfully deleted!"
+    redirect_to company_path(company)
+  end
+
   private
 
   def contact_params

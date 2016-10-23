@@ -34,9 +34,14 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    @category.destroy
-    flash[:success] = "#{@category.title} was successfully deleted!"
-    redirect_to categories_path
+    if @category.jobs.count == 0
+      @category.delete
+      flash[:success] = "#{@category.title} was successfully deleted!"
+      redirect_to categories_path
+    else
+      flash[:error] = "All jobs must be deleted from #{@category.title} before the category can be deleted!"
+      redirect_to categories_path
+    end
   end
 
   private

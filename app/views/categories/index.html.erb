@@ -1,8 +1,8 @@
-<div class = "text-center" style="padding-bottom: 50px">
+<div class = "text-center" style="padding-top: 50px">
 <h1>All Categories</h1>
 <% @categories.each do |category| %>
-  <div class=category_<%= category.id %>><div class="row well"><h3><%= link_to category.title, category_path(category) %></h3>
-    <p><%= link_to "Edit", edit_category_path(category), class: "btn btn-default" %>
+  <div class=category_<%= category.id %>><div class="row well"><h2 style="font-weight: lighter"><%= link_to category.title, category_path(category) %></h2>
+    <%= link_to "Edit", edit_category_path(category), class: "btn btn-default" %>
       <%= link_to "Delete", category_path(category), method: :delete, class: "btn btn-danger" %>
   </div></div>
 <% end %>

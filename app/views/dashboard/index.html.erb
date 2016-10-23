@@ -1,15 +1,17 @@
-<div class = "text-center" style="padding-bottom: 50px">
-  <h1>Analysis</h1>
-  <div class="row well">
-<div class="col-md-4"><h2>Jobs by Level of Interest: </h2>
+<div class = "text-center" style="padding-top: 50px">
+<p>
+
+<div class="col-md-4"><div class="panel panel-default" style="background-color: #ffe0e0"><h2>Jobs by Level of Interest: </h2>
   <% Job.format_interest.each do |elem| %>
     <%= elem %><br />
-  <% end %></div>
-<div class="col-md-4"><h2>Top Three Companies by Average Level of Interest</h2>
+  <% end %></div></div>
+<div class="col-md-4"><div class="panel panel-default" style="background-color: #ecffe0"><h2>Top Three Companies by Average Level of Interest</h2>
   <% Job.top_three_by_interest.each do |elem| %>
     <p><%= elem %></p>
-  <% end %></div>
-<div class="col-md-4"><h2>Jobs by Location</h2>
+
+  <% end %>
+</div></div>
+<div class="col-md-4"><div class="panel panel-default" style="background-color: #e0fffb"><h2>Jobs by Location</h2>
 <% Company.companies_by_location.each_pair do |location, companies| %>
   <p><%= link_to location, "/companies?location=#{location}" %>:
     <% total = 0 %>
@@ -18,5 +20,6 @@
     <% end %>
     <%= total %></p>
 <% end %></div>
-</div>
+<h4><%= link_to "View all companies sorted by location", "/companies/?sort=location" %></h4></div>
+
 </div>
