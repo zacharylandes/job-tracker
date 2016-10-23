@@ -1,25 +1,62 @@
 <div class = "text-center" style="padding-top: 60px">
+  <div class="col-md-4">
+    <div class="panel panel-default" style="background-color: #ffe0e0">
+      <h2>Jobs by Level of Interest: </h2>
+      <div class="panel-body">
+        <div class="col-md-6">
+          <h4>Level of Interest</h4>
+        </div>
+        <div class="col-md-6">
+          <h4># of Jobs</h4>
+        </div>
+        <% Job.jobs_by_level_of_interest.each do |level_of_interest, count| %>
+          <div class="col-md-6">
+            <%= level_of_interest  %>
+          </div>
+          <div class="col-md-6">
+            <%= count %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
+  <div class="col-md-4">
+    <div class="panel panel-default" style="background-color: #ecffe0">
+      <div class="panel-header">
+        <h2>Top Three Companies by Average Level of Interest</h2>
+      </div>
+      <div class="panel-body">
+        <div class="col-md-6">
+          <h4>Company</h4>
+        </div>
+        <div class="col-md-6">
+          <h4>Level of Interest</h4>
+        </div>
+        <% Company.top_three_by_interest.each do |company, avg_level_of_interest| %>
+          <div class="col-md-6">
+            <%= link_to company, company_path(Company.find_by(name: company)) %>
+          </div>
+          <div class="col-md-6">
+            <%= avg_level_of_interest %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-<div class="col-md-4"><div class="panel panel-default" style="background-color: #ffe0e0"><h2>Jobs by Level of Interest: </h2>
-  <% Job.format_interest.each do |elem| %>
-    <%= elem %><br />
-  <% end %></div></div>
-<div class="col-md-4"><div class="panel panel-default" style="background-color: #ecffe0"><h2>Top Three Companies by Average Level of Interest</h2>
-  <% Job.top_three_by_interest.each do |elem| %>
-    <p><%= elem %></p>
-
-  <% end %>
-</div></div>
-<div class="col-md-4"><div class="panel panel-default" style="background-color: #e0fffb"><h2>Jobs by Location</h2>
-<% Company.companies_by_location.each_pair do |location, companies| %>
-  <p><%= link_to location, "/companies?location=#{location}" %>:
-    <% total = 0 %>
-    <% companies.each do |company| %>
-      <% total += company.jobs.count %>
-    <% end %>
-    <%= total %></p>
-<% end %></div>
-<h4><%= link_to "View all companies sorted by location", "/companies/?sort=location" %></h4></div>
-
+  <div class="col-md-4">
+    <div class="panel panel-default" style="background-color: #e0fffb">
+      <h2>Jobs by Location</h2>
+      <% Company.companies_by_location.each_pair do |location, companies| %>
+        <p><%= link_to location, "/companies?location=#{location}" %>:
+        <% total = 0 %>
+        <% companies.each do |company| %>
+          <% total += company.jobs.count %>
+        <% end %>
+        <%= total %></p>
+      <% end %>
+    </div>
+    <h4><%= link_to "View all companies sorted by location", "/companies/?sort=location" %></h4>
+  </div>
 </div>

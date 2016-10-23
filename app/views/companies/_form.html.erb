@@ -1,13 +1,13 @@
 <div class = "text-center" style="padding-bottom: 50px">
-<%= form_for @company do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %></p>
+  <%= form_for @company do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %></p>
 
-  <%= f.label :city %>
-  <%= f.text_field :city %></p>
+    <%= f.label :city %>
+    <%= f.text_field :city %></p>
 
-  <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
-   Submit
+    <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+      Submit
+    <% end %>
   <% end %>
-<% end %>
 </div>

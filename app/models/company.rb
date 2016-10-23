@@ -8,4 +8,12 @@ class Company < ActiveRecord::Base
     all.group_by(&:city)
   end
 
+  def self.top_three_by_interest
+    joins(:jobs).
+    group(:name).
+    order("AVG(jobs.level_of_interest) DESC").
+    limit(3).
+    pluck(:name, "AVG(jobs.level_of_interest)")
+  end
+
 end

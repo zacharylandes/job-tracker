@@ -1,48 +1,59 @@
 <div class = "text-center" style="padding-top: 60px">
-<h1>All Jobs for <strong><%= @company.name %></strong>
-<small class="light"><%= link_to "Sort by level of interest", "jobs/?sort=interest" %>  |  <%= link_to "New job at #{@company.name}", new_company_job_path %></small><h1>
+  <h1>All Jobs for <strong><%= @company.name %></strong>
+    <small class="light">
+      <%= link_to "Sort by level of interest", "jobs/?sort=interest" %>  |  <%= link_to "New job at #{@company.name}", new_company_job_path %>
+    </small>
+  </h1>
 
-<% @jobs.each do |job| %>
-
+  <% @jobs.each do |job| %>
     <div class="row well">
-    <div class=job_<%= job.id %>><h3 class="light"><%= link_to "#{job.title} at #{job.company.name}", company_job_path(@company, job) %>
-    <%= link_to "Edit", edit_company_job_path(@company, job), class: "btn btn-default" %> <%= link_to "Delete", company_job_path(@company, job), method: :delete, class: "btn btn-danger" %></h3></div>
+      <div class=job_<%= job.id %>>
+        <h3 class="light">
+          <%= link_to "#{job.title} at #{job.company.name}", company_job_path(@company, job) %>
+          <%= link_to "Edit", edit_company_job_path(@company, job), class: "btn btn-default" %>
+          <%= link_to "Delete", company_job_path(@company, job), method: :delete, class: "btn btn-danger" %>
+        </h3>
+      </div>
     </div>
-
-<% end %>
-
-<hr><h4></h4>
-
+  <% end %>
 
   <div class="container">
-  <div class="col-md-6"><div class="panel panel-default" style="padding-bottom: 10px">
-  <div class="panel-heading"><h4>Add a contact for <%= @company.name %>:</h4></div>
-  <div class="panel-body">
-    <%= form_for @contact do |f| %>
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %></p>
+    <div class="col-md-6">
+      <div class="panel panel-default" style="padding-bottom: 10px">
+        <div class="panel-heading">
+          <h4>Add a contact for <%= @company.name %>:</h4>
+        </div>
+        <div class="panel-body">
+          <%= form_for @contact do |f| %>
+          <%= f.label :first_name %>
+          <%= f.text_field :first_name %></p>
 
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %></p>
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name %></p>
 
-    <%= f.label :position %>
-    <%= f.text_field :position %></p>
+          <%= f.label :position %>
+          <%= f.text_field :position %></p>
 
-    <%= f.label :email %>
-    <%= f.text_field :email %></p>
-    <%= hidden_field(:company, :id) %>
-    <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
-     Create Contact
-    <% end %>
-  <% end %></div></div></div>
-
-  <div class="col-md-6"><div class="panel panel-default"><div class="panel-heading"><h4>Contacts</h4></div>
-
-  <% @company.contacts.each do |contact| %>
-    <div class="panel-body"><p><%= contact.first_name %> <%= contact.last_name %></p>
-    <%= contact.position %> at <%= @company.name %></p>
-    <%= link_to contact.email, "mailto:#{contact.email}" %></p>
-    <%= link_to "Delete Contact", contact_path(contact), method: :delete, class: "btn btn-danger" %></div>
-  <% end %></div></div>
-
+          <%= f.label :email %>
+          <%= f.text_field :email %></p>
+          <%= hidden_field(:company, :id) %>
+          <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+           Create Contact
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="panel panel-default"><div class="panel-heading"><h4>Contacts</h4></div>
+      <% @company.contacts.each do |contact| %>
+        <div class="panel-body">
+          <p><%= contact.first_name %> <%= contact.last_name %></p>
+          <%= contact.position %> at <%= @company.name %></p>
+          <%= link_to contact.email, "mailto:#{contact.email}" %></p>
+          <%= link_to "Delete Contact", contact_path(contact), method: :delete, class: "btn btn-danger" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
