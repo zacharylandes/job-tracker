@@ -40,16 +40,17 @@ describe Company do
     end
   end
 
-  describe ".companies_by_location" do
-    it "returns a hash" do
+  describe ".jobs_by_location" do
+    it "returns an array" do
       Company.create(name: "Dropbox", city: "Denver")
-      expect(Company.companies_by_location).to be_a Hash
+      expect(Company.jobs_by_location).to be_a Array
     end
 
-    it "returns a companies grouped by city" do
-      Company.create(name: "Dropbox", city: "Denver")
-      expect(Company.companies_by_location).to include("Denver")
-      expect(Company.companies_by_location.values[0][0].name).to eq("Dropbox")
+    it "returns a city with number of jobs" do
+      company = Company.create(name: "Dropbox", city: "Denver")
+      company.jobs.create(title: "Software", level_of_interest: 60, description: "Wahooo", company_id: company.id)
+      company.jobs.create(title: "Softbear", level_of_interest: 70, description: "kgajhfk", company_id: company.id)
+      expect(Company.jobs_by_location).to include(["Denver", 2])
     end
   end
 
