@@ -5,6 +5,7 @@
     <strong>Company:</strong> <%= link_to @job.company.name, company_path(@job.company) %><br>
     <strong>Category:</strong> <%= link_to @job.category.title, category_path(@job.category) if @job.category %></h3>
 </div><hr>
+
 <div class="col-md-6">
   <div class="panel panel-default" style="padding-bottom: 10px">
     <div class="panel-heading">
@@ -22,8 +23,6 @@
       <% end %>
     </div>
   </div>
-
-
 
   <div class="panel panel-default">
     <div class="panel-heading">

@@ -3,7 +3,7 @@
     <div class="panel-header">
       <h2>Jobs by Level of Interest: </h2>
     </div>
-    <div class="panel-body"  style="background-color: #ffe0e0">
+    <div class="panel-body"  style="background-color: #ffe0e0; text-align: left">
       <div class="col-md-6">
         <h4>Level of Interest</h4>
       </div>
@@ -27,23 +27,21 @@
     <div class="panel-header">
       <h2>Top Three Companies</h2>
     </div>
-    <div class="panel-body" style="background-color: #ecffe0">
+    <div class="panel-body" style="background-color: #ecffe0; text-align: left">
       <div class="col-md-6">
         <h4>Company</h4>
       </div>
       <div class="col-md-6">
         <h4>Average Level of Interest</h4>
       </div>
-      <ol>
         <% Company.top_three_by_interest.each do |company, avg_level_of_interest| %>
           <div class="col-md-6">
-            <li><%= company %></li>
+            <%= company %>
           </div>
           <div class="col-md-6">
             <%= avg_level_of_interest.round(1) %>
           </div>
         <% end %>
-      </ol>
     </div>
   </div>
 </div>
@@ -51,7 +49,7 @@
 <div class="col-md-4">
   <div class="panel panel-default">
     <h2>Jobs by Location</h2>
-    <div class="panel-body" style="background-color: #e0fffb">
+    <div class="panel-body" style="background-color: #e0fffb; text-align: left">
       <% Company.jobs_by_location.each do |city, count| %>
         <h4><%= link_to city, "/companies?location=#{city}" %>: <%= count %> jobs</h4>
       <% end %><hr>
