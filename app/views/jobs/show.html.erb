@@ -31,8 +31,8 @@
     </div>
     <% @job.comments.order_comments.each do |comment| %>
       <div class="panel-body">
-        <h4><small><%= comment.created_at.to_date %></small><p><p><%= comment.content %></p></p></h4>
-        <%= link_to "Delete", comment_path(comment), method: :delete, class: "btn btn-danger" %>
+        <h4><small><%= comment.created_at.to_date %>:</small><p><%= comment.content %></h4>
+        <%= link_to "Delete", comment_path(comment), method: :delete, class: "btn btn-danger" %><hr>
       </div>
     <% end %>
   </div>
