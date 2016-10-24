@@ -1,41 +1,39 @@
-<div class = "text-center">
-  <div class="row well">
-    <h2 class="light"><%= @job.title %></h2>
-      <strong>Description:</strong> <%= @job.description %><br>
-      <strong>Level of Interest:</strong> <%= @job.level_of_interest %><br>
-      <strong>Company:</strong> <%= link_to @job.company.name, company_path(@job.company) %><br>
-      <strong>Category:</strong> <%= link_to @job.category.title, category_path(@job.category) if @job.category %>
-  </div>
-  <div class="col-md-6">
-    <div class="panel panel-default" style="padding-bottom: 10px">
-      <div class="panel-heading">
-        <h4>Add a comment:</h4>
-      </div>
-      <div class="panel-body">
-        <%= form_for @comment do |f| %>
-
-          <%= f.text_area :content %></p>
-          <%= hidden_field(:job, :id) %>
-
-          <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
-            Create Comment
-          <% end %>
-        <% end %>
-      </div>
+<div class="row well">
+  <h2 class="light"><%= @job.title %></h2>
+    <strong>Description:</strong> <%= @job.description %><br>
+    <strong>Level of Interest:</strong> <%= @job.level_of_interest %><br>
+    <strong>Company:</strong> <%= link_to @job.company.name, company_path(@job.company) %><br>
+    <strong>Category:</strong> <%= link_to @job.category.title, category_path(@job.category) if @job.category %>
+</div>
+<div class="col-md-6">
+  <div class="panel panel-default" style="padding-bottom: 10px">
+    <div class="panel-heading">
+      <h4>Add a comment:</h4>
     </div>
-  </div>
+    <div class="panel-body">
+      <%= form_for @comment do |f| %>
 
-  <div class="col-md-6">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4>Comments:</h4>
-      </div>
-      <% @job.comments.order_comments.each do |comment| %>
-        <div class="panel-body">
-          <h4><small><%= comment.created_at.to_date %></small><p><p><%= comment.content %></p></p></h4>
-          <%= link_to "Delete", comment_path(comment), method: :delete, class: "btn btn-danger" %>
-        </div>
+        <%= f.text_area :content %></p>
+        <%= hidden_field(:job, :id) %>
+
+        <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+          Create Comment
+        <% end %>
       <% end %>
     </div>
+  </div>
+</div>
+
+<div class="col-md-6">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>Comments:</h4>
+    </div>
+    <% @job.comments.order_comments.each do |comment| %>
+      <div class="panel-body">
+        <h4><small><%= comment.created_at.to_date %></small><p><p><%= comment.content %></p></p></h4>
+        <%= link_to "Delete", comment_path(comment), method: :delete, class: "btn btn-danger" %>
+      </div>
+    <% end %>
   </div>
 </div>

@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   resources :contacts, only: [:create, :destroy]
   resources :dashboard, only: [:index]
 
-   root 'dashboard#home'
+  root 'dashboard#home'
 
 end

@@ -1,9 +1,8 @@
-<div class = "text-center">
-  <h1>All Companies</h1>
-  <ul class="list-group">
+<h1>All Companies</h1>
+<ul class="list-group">
   <% @companies.each do |company| %>
-  <li class="list-group-item">
-    <div class=company_<%= company.id %>>
+    <li class="list-group-item">
+      <div class=company_<%= company.id %>>
         <h2 class="light">
           <%= link_to company.name, company_path(company) %> <small class="light">(<%= company.city %>)</small>
           <%= link_to "Edit", edit_company_path(company), :class => "btn btn-default" %>
@@ -12,6 +11,5 @@
       </div>
     </li>
   <% end %>
-  </ul>
-  <p><%= link_to "New Company", new_company_path %></p>
-</div>
+</ul>
+<p><%= link_to "New Company", new_company_path %></p>
