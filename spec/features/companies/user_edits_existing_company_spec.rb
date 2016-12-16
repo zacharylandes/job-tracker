@@ -2,7 +2,6 @@ require 'rails_helper'
 
 describe "User edits an existing company" do
   scenario "a user can edit a company" do
-    skip
     company = Company.create!(name: "ESPN")
     visit edit_company_path(company)
 

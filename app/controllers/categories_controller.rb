@@ -1,6 +1,4 @@
 class CategoriesController < ApplicationController
-  include CategoriesHelper
-
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -12,8 +10,12 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = Category.create(category_params)
-    create_helper
+    @category = Category.new(category_params)
+    if @category.save
+      redirect_to category_path(@category)
+    else
+      render :new
+    end
   end
 
   def show
@@ -23,22 +25,31 @@ class CategoriesController < ApplicationController
   end
 
   def update
-    @category.update(category_params)
-    update_helper
+    if @category.update(category_params)
+      redirect_to category_path(@category)
+    else
+      render :edit
+    end
   end
 
   def destroy
-    @category.destroy
-    redirect_to categories_path
+    if @category.jobs.count == 0
+      @category.delete
+      flash[:success] = "#{@category.title} was successfully deleted!"
+      redirect_to categories_path
+    else
+      flash[:error] = "All jobs must be deleted from #{@category.title} before the category can be deleted!"
+      redirect_to categories_path
+    end
   end
 
   private
 
-  def set_category
-    @category = Category.find(params[:id])
-  end
-
   def category_params
     params.require(:category).permit(:title)
+  end
+
+  def set_category
+    @category = Category.find(params[:id])
   end
 end

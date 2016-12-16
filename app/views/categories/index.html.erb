@@ -1,7 +1,16 @@
-<h3>Categories:</h3>
-
-<% @categories.each do |category| %>
-  <ul><%= link_to category.title, category_path(category) %></ul>
-<% end %>
-
-<%= link_to "Add New Category", new_category_path %>
+<h1>All Categories</h1>
+<ul class="list-group">
+  <% @categories.each do |category| %>
+    <li class="list-group-item">
+      <div class=category_<%= category.id %>>
+        <h2 style="font-weight: lighter">
+          <%= link_to category.title, category_path(category) %>
+          <%= link_to "Edit", edit_category_path(category), class: "btn btn-default" %>
+          <%= link_to "Delete", category_path(category), method: :delete, class: "btn btn-danger" %>
+        </h2>
+      </div>
+    </li>
+  <% end %>
+</ul>
+<h4><%= link_to "New Category", new_category_path %></h4>
+<img src="http://img08.deviantart.net/ddbe/i/2012/178/a/3/why_not_zoidberg__by_nogard00-d5523p1.jpg">
