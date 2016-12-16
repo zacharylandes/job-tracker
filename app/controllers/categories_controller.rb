@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  # include CategoriesHelper
+  include CategoriesHelper
 
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
@@ -13,7 +13,7 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.create(category_params)
-    # create_helper
+    create_helper
   end
 
   def show
@@ -24,7 +24,7 @@ class CategoriesController < ApplicationController
 
   def update
     @category.update(category_params)
-    # update_helper
+    update_helper
   end
 
   def destroy

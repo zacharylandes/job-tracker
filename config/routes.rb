@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'homepage#index'
 
-  # get 'dashboard' => 'homepage#index'
+  get 'dashboard' => 'homepage#index'
 
   resources :companies do
     resources :jobs do

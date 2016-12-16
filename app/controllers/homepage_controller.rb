@@ -1,5 +1,6 @@
 class HomepageController < ApplicationController
-  # include HomepageHelper
+  include HomepageHelper
+
   def index
     @companies = Company.all
     @categories = Category.all

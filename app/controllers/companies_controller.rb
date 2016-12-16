@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  # include CompaniesHelper
+  include CompaniesHelper
 
   before_action :set_company, only: [:show, :edit, :update, :destroy]
 
@@ -14,9 +14,16 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    @company = Company.new(company_params)
-    # create_helper
+    @company = Company.create(company_params)
+    if @company.save
+      redirect_to @company
+    else
+      render :new
+    end
   end
+    # @company = Company.new(company_params)
+    # create_helper
+  # end
 
   def show
     redirect_to company_jobs_path(@company)
@@ -27,7 +34,7 @@ class CompaniesController < ApplicationController
 
   def update
     @company.update(company_params)
-    # update_helper
+    update_helper
   end
 
   def destroy
@@ -41,7 +48,7 @@ class CompaniesController < ApplicationController
   def set_company
     @company = Company.find(params[:id])
   end
-  
+
   def company_params
     params.require(:company).permit(:name)
   end

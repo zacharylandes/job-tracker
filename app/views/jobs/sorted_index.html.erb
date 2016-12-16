@@ -3,5 +3,7 @@
 <ul>Job Title: Level of Interest</ul>
 
 <% @jobs.each do |job| %>
-  <ul><%= job.title%>: <%= job.level_of_interest %></ul>
+  <ul><%= job.title%><br>
+      <%= job.level_of_interest %><br>
+      <%= job.city %><br></ul>
 <% end %>
