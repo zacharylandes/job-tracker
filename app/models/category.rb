@@ -1,4 +1,4 @@
 class Category < ActiveRecord::Base
-  validates :name, presence: true
-  belongs_to :job
+  validates :title, presence: true, uniqueness: true
+  belongs_to :job, :dependent => :destroy
 end

@@ -1,52 +1,54 @@
 class JobsController < ApplicationController
+  # include JobsHelper
+
+  before_action :set_company, only: [:new, :edit, :create, :show]
+  before_action :set_job,     only: [:show, :edit, :update, :destroy]
+
   def index
     @company = Company.find(params[:company_id])
     @jobs = @company.jobs
   end
 
   def new
-    @company = Company.find(params[:company_id])
     @job = Job.new()
+    @categories = Category.all
+    @comment = Comment.new(job_id: params[:job_id])
   end
 
   def create
-    @company = Company.find(params[:company_id])
     @job = @company.jobs.new(job_params)
-    if @job.save
-      flash[:success] = "You created #{@job.title} at #{@company.name}"
-      redirect_to company_job_path(@company, @job)
-    else
-      render :new
-    end
+    # create_helper
   end
 
   def show
-    @job = Job.find(params[:id])
+    @comment = Comment.new
   end
 
   def edit
-    @job = Job.find(params[:id])
+    @categories = Category.all
   end
 
   def update
-    @job = Job.find(params[:id])
-    if @job.update(job_params)
-      redirect_to @job
-    else
-      render :edit
-    end
+    @job.update(job_params)
+    # update_helper
   end
 
   def destroy
-    @job = Job.find(params[:id])
     @job.destroy
-
-    redirect_to jobs_path
+    redirect_to company_jobs_path
   end
 
   private
 
+  def set_company
+    @company = Company.find(params[:company_id])
+  end
+
+  def set_job
+    @job = Job.find(params[:id])
+  end
+
   def job_params
-    params.require(:job).permit(:title, :description, :level_of_interest, :city)
+    params.require(:job).permit(:title, :description, :level_of_interest, :category_id)
   end
 end
