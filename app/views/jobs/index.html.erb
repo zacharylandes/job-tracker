@@ -1,5 +1,16 @@
-All Jobs for <strong><%= @company.name %></strong>
+<h2>All Jobs for <strong><%= @company.name %></strong></h2>
 
-<% @jobs.each do |job| %>
-  <ul><%= job.title %> at <%= job.company.name %></ul>
-<% end %>
+
+<article >
+  <ul><li class = "list-group-item"> <%=link_to "New job", new_company_job_url%></li></ul>
+  <div class = "cards">
+ <% @jobs.each do |job| %>
+  <ul class="list-group">
+    <li class=job_ <%= job.id %>>
+    <li class ="list-group-item"> <%= link_to job.title,company_job_path( job.company.id, job.id) %>:</li>
+    <li class ="list-group-item "> <%= link_to "Edit", edit_company_job_path(job.company.id, job.id) %></li>
+    <li class ="list-group-item "> <%= link_to "Delete", company_job_path(job.company.id, job.id), method: "delete" %></li>
+  </ul>
+  <% end %>
+</div>
+</article>

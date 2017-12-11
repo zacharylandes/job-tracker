@@ -13,3 +13,86 @@
  *= require_tree .
  *= require_self
  */
+
+body{
+  background-image: url('darkshadows.gif');
+  background-color: #31333B;
+  color: #B3B3B3;
+  font-family: 'Kelly Slab', cursive;
+}
+a{
+  text-decoration: none;
+  color: #B3B3B3;
+}
+a:hover{
+  text-decoration: none;
+}
+#company_list{
+  padding-left: 30px;
+}
+h3{
+  margin-left: 20px;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+input{
+  color:black;
+  border-radius: 8px;
+  margin: 10px;
+  background-color: #B3B3B3;
+}
+.new_job{
+  padding:20px;
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+  justify-content:space-between;
+}
+.list-group-item{
+  border-radius: 5px;
+  width:10em;
+  background-color: #B3B3B3;
+  margin:20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.list-group-item a{
+  color:black;
+}
+
+.breadcrumb{
+  margin: 10px;
+  background-color: #B3B3B3;
+  width: 27%;
+  height:20px;
+  padding:0px;
+}
+.breadcrumb-item{
+
+color: black}
+
+.list-group{
+  width:30em;
+
+}
+li{
+  decoration:none;
+}
+
+.cards{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.new-button{
+  margin-right: 20px;
+  width:20px;
+}
