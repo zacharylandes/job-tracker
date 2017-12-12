@@ -9,7 +9,6 @@ describe "User edits an existing job" do
 
     visit edit_company_job_path(company,job)
     # byebug
-    save_and_open_page
 
     fill_in "job[title]", with: "Flippity Flopper"
     fill_in "job[description]", with: "Flops the flips"

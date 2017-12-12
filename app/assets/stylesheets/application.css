@@ -80,6 +80,11 @@ input{
   color:black;
   align-items: center;
 }
+.contacts{
+  display: flex;
+  justify-content: center;
+
+}
 .list-group-item a{
   color:black;
 }
@@ -196,6 +201,7 @@ font-size: 10px;}
 .new_comment{
   display: flex;
   align-items: center;
+  background-color: black;
 }
 .show-container{
   display: flex;

@@ -16,7 +16,7 @@
 </div>
 </article>
 
-<article >
+<article class = 'contacts'>
   <div class ="list-group-contact">
     <h4>Create a contact</h4>
     <%=form_for [@company, @contact] do |f| %>
@@ -30,4 +30,15 @@
     <% end %>
   </div>
 </div>
+
+  <div class ="list-group-contact">
+    <%@contacts.each do |contact|%>
+      <li>Contact</li>
+      <li class =""><%=contact.name%></li>
+      <li class =" "><%=contact.position%></li>
+      <li class =" "><%=contact.email%></li>
+      <li class ="list-group-item "> <%= link_to "Delete", company_contact_path(@company,contact), method: "delete" %></li>
+      <br>
+    <% end %>
+  </div>
 </article>

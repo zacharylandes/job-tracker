@@ -21,11 +21,9 @@ class ContactsController < ApplicationController
 
 
   def destroy
-      job = Job.find(params[:job_id])
-      contact = Contact.find(job.company_id)
-      # contact = Contact.find(params[:id])
+      contact = Contact.find(params[:id])
       # contact.destroy
-      redirect_to company_job_path(contact,job)
+      redirect_to company_job_path(contact)
   end
 
   private
