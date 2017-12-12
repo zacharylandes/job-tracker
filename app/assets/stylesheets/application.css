@@ -16,10 +16,9 @@
 
 body{
   background-image: url('darkshadows.gif');
-  background-color: #31333B;
+  /*background-color: #31333B;*/
   color: #B3B3B3;
-  font-family: 'Kelly Slab', cursive;
-}
+font-family: 'Alegreya Sans SC', sans-serif;}
 a{
   text-decoration: none;
   color: #B3B3B3;
@@ -30,10 +29,27 @@ a:hover{
 #company_list{
   padding-left: 30px;
 }
-h3{
-  margin-left: 20px;
-}
+.new-button{
 
+margin: auto;
+}
+#new_job{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+#new_job label{
+  margin: 0;
+}
+h3{
+  /*margin-left: 20px;*/
+  text-align: center;
+  border-bottom: 1px solid;
+}
+label{
+  margin-left: 15px;
+}
 form{
   display: flex;
   flex-direction: column;
@@ -57,10 +73,11 @@ input{
   border-radius: 5px;
   width:10em;
   background-color: #B3B3B3;
-  margin:20px;
+  margin:10px;
   height: 20px;
   display: flex;
   justify-content: center;
+  color:black;
   align-items: center;
 }
 .list-group-item a{
@@ -75,24 +92,131 @@ input{
   padding:0px;
 }
 .breadcrumb-item{
-
+padding-top:20px;
+margin-left: 10px;
 color: black}
+.new{
+  margin-right: 52px;
+}
 
-.list-group{
+.list-group-cat{
   width:30em;
+  background-color: black;
+  border-radius: 10px;
+  padding:10px;
+  margin: 20px;
+  height: 140px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  color:black;
+  width:170px;
+}
+.list-group-contact{
+  width:30em;
+  background-color: black;
+  border-radius: 10px;
+  padding:10px;
+  margin: 20px;
+  height: 350px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  color: #B3B3B3;
+  width:170px;
+}
+.list-group-job{
+    width:30em;
+    background-color: black;
+    border-radius: 10px;
+    padding:10px;
+    margin: 20px;
+    height: 440px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    color:black;
+    width:170px;
+}
+.list-group-job label{
+  color:white;
+}
+ul {
+  list-style-type: none;
+}
+.list-group-jobs {
+  text-align: center;
+    background-color: #B3B3B3;
+    border-radius: 10px;
+    padding:10px;
+    margin: 20px;
+    height: 680px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    color:black;
+    width:370px;
+}
+
+.job-button, .job-button a, input{
+  background-color: #535661;
+  color:white;
 
 }
-li{
-  decoration:none;
-}
 
+.forms{
+  background-color: #535661;
+
+}
+.comment-time{
+font-size: 10px;}
+.comment-show{
+  /*background-color:  #535661;*/
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  padding: 20px;
+
+}
 .cards{
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
 }
+.job-shows{
+  display: flex;
+  justify-content: center;
+}
 
-.new-button{
-  margin-right: 20px;
-  width:20px;
+.new_comment{
+  display: flex;
+  align-items: center;
+}
+.show-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items:center;
+}
+.shows{
+  margin-top: 40px;
+  background-color: #B3B3B3;
+  color:black;
+  width:220px;
+  border-radius:30px;
+  padding:20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items:center;
+}
+
+.cat-head{
+
+margin-bottom: 10px;
 }

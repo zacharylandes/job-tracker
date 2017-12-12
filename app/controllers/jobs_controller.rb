@@ -3,11 +3,13 @@ class JobsController < ApplicationController
   def index
     @company = Company.find(params[:company_id])
     @jobs = @company.jobs
+    @contact = Contact.new
   end
 
   def new
     @job = Job.new()
     @company = Company.find(params[:company_id])
+    @category = Category.all
   end
 
   def create
@@ -24,20 +26,20 @@ class JobsController < ApplicationController
   def show
     @job = Job.find(params[:id])
     @company = Company.find(params[:company_id])
-    # redirect_to company_job_path(@job)
+    @category = Category.find(@job.category_id)
+    @comment = Comment.new
+    @comments=  Comment.where(:job_id => @job.id).order("created_at DESC")
   end
 
   def edit
     @job = Job.find(params[:id])
-        @company = Company.find(params[:company_id])
-
-
+    @category = Category.all
+    @company = Company.find(params[:company_id])
   end
 
   def update
     @job = Job.find(params[:id])
     @company = Company.find(params[:company_id])
-
     @job.update(job_params)
     if @job.save
       flash[:success] = "#{@job.title} updated!"
@@ -45,7 +47,6 @@ class JobsController < ApplicationController
     else
       render :edit
     end
-    # implement on your own!
   end
 
   def destroy
@@ -53,12 +54,13 @@ class JobsController < ApplicationController
     job.destroy
     flash[:success] = "#{job.title} was successfully deleted!"
     redirect_to company_jobs_path
-    # implement on your own!
   end
 
   private
 
   def job_params
-    params.require(:job).permit(:title, :description, :level_of_interest, :city)
+    params.require(:job).permit(:title, :description, :level_of_interest, :city, :category_id)
   end
+
+
 end

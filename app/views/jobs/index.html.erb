@@ -1,16 +1,33 @@
-<h2>All Jobs for <strong><%= @company.name %></strong></h2>
+<h3>All Jobs for <strong><%= @company.name %></strong></h3>
 
 
 <article >
+  <div class = "new-button" >
   <ul><li class = "list-group-item"> <%=link_to "New job", new_company_job_url%></li></ul>
   <div class = "cards">
- <% @jobs.each do |job| %>
-  <ul class="list-group">
-    <li class=job_ <%= job.id %>>
-    <li class ="list-group-item"> <%= link_to job.title,company_job_path( job.company.id, job.id) %>:</li>
-    <li class ="list-group-item "> <%= link_to "Edit", edit_company_job_path(job.company.id, job.id) %></li>
-    <li class ="list-group-item "> <%= link_to "Delete", company_job_path(job.company.id, job.id), method: "delete" %></li>
-  </ul>
-  <% end %>
+    <% @jobs.each do |job| %>
+      <ul class="list-group list-group-cat">
+        <li class=job_ <%= job.id %>>
+        <li class ="cat-head"> <%= link_to job.title,company_job_path( job.company.id, job.id) %>:</li>
+        <li class ="list-group-item "> <%= link_to "Edit", edit_company_job_path(job.company.id, job.id) %></li>
+        <li class ="list-group-item "> <%= link_to "Delete", company_job_path(job.company.id, job.id), method: "delete" %></li>
+      </ul>
+    <% end %>
+</div>
+</article>
+
+<article >
+  <div class ="list-group-contact">
+    <h4>Create a contact</h4>
+    <%=form_for [@company, @contact] do |f| %>
+      <%= f.label :name  %>
+      <%= f.text_field :name  %>
+      <%= f.label :position  %>
+      <%= f.text_field :position  %>
+      <%= f.label :email  %>
+      <%= f.text_field :email  %>
+      <%= f.submit %>
+    <% end %>
+  </div>
 </div>
 </article>

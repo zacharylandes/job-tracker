@@ -1,6 +1,7 @@
 
-<div class="forms">
-<%=  form_for [@company, @job] do |f| %>
+<div class = "job-shows">
+<div class="list-group-job">
+<%= form_for [@company, @job] do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
 
@@ -13,6 +14,9 @@
   <%= f.label :city %>
   <%= f.text_field :city %>
 
+  <%= f.label :category %>
+  <%= f.select :category_id, options_for_select( @category.collect{ |category| ["#{category.name}", category.id] } ), class: 'form-control' %>
   <%= f.submit %>
 <% end %>
+</div>
 </div>
