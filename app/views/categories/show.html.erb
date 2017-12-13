@@ -1,11 +1,10 @@
 <div class = "show-container">
-<div class = "shows">
-
-  <p><h4>Category</h4> <%= @category.name %></p>
-  Jobs in this category:
-  <% @job.each do |job| %>
-    <p><%=job.title%></p>
-  <%end%>
-  <br>
-</div>
+  <div class = "shows">
+    <p><h4>Category</h4> <%= @category.name %></p>
+    Jobs in this category:
+    <% @job.each do |job| %>
+      <p><%=job.title%></p>
+    <%end%>
+    <br>
+  </div>
 </div>

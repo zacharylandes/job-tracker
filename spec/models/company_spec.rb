@@ -2,6 +2,21 @@ require 'rails_helper'
 
 describe Company do
     describe 'class methods' do
+
+      it '.avg interest at company' do
+
+        company1,company2,company3,company4 = create_list(:company,4)
+        jobs1= create(:job,  company_id: company1.id)
+        jobs2= create(:job,  company_id: company2.id)
+        jobs3= create(:job,  company_id: company2.id)
+        jobs4= create(:job,  company_id: company3.id)
+        jobs5= create(:job,  company_id: company4.id)
+
+        expect(Company.avg_interest_at_company.keys).to eq([16, 18, 19, 20])
+
+        # byebug
+      end
+
       it '.avg at company' do
 
         company1,company2,company3,company4 = create_list(:company,4)
@@ -11,9 +26,8 @@ describe Company do
         jobs4= create(:job,  company_id: company3.id)
         jobs5= create(:job,  company_id: company4.id)
 
-        expect(Company.avg_at_company.keys).to eq([8, 7, 6])
+        expect(Company.top_three_by_interest.count).to eq(3)
 
-        # byebug
       end
     end
   describe "validations" do

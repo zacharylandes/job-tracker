@@ -1,8 +1,10 @@
 FactoryBot.define do
   factory :comment do
-    content "commenty comment"
+    sequence(:content) {|n| "categoryName#{n}"}
+
+    # content "commenty comment"
     job
-    company
-    category
+    # company
+    # category
   end
 end

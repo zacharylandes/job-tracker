@@ -20,8 +20,9 @@
       <% end %>
     </div>
 
-    <div class ="comment-show">
       <%@comments.each do |comment|%>
+    <div class ="list-group-comment-show">
+
         <li>Created at</li>
         <li class ="comment-time"><%=comment.created_at%></li>
         <li>Comment</li>
@@ -29,8 +30,8 @@
         <li class =""><%= link_to "Edit", job_comment_path(@job,comment) %></li>
         <li class =""> <%= link_to "Delete", job_comment_path(@job,comment), method: "delete" %></li>
         <br>
+      </div>
       <% end %>
-    </div>
 </ul>
 
 </div>

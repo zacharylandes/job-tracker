@@ -3,7 +3,8 @@
 
 <article >
   <div class = "new-button" >
-  <ul><li class = "list-group-item"> <%=link_to "New job", new_company_job_url%></li></ul>
+    <li class = "list-group-item"> <%=link_to "New job", new_company_job_url%></li>
+  </div>
   <div class = "cards">
     <% @jobs.each do |job| %>
       <ul class="list-group list-group-cat">
@@ -14,11 +15,11 @@
       </ul>
     <% end %>
 </div>
-</article>
 
 <article class = 'contacts'>
   <div class ="list-group-contact">
-    <h4>Create a contact</h4>
+    <h5>Create a contact for </h5>
+    <h5><%=@company.name%></h5>
     <%=form_for [@company, @contact] do |f| %>
       <%= f.label :name  %>
       <%= f.text_field :name  %>
@@ -31,8 +32,8 @@
   </div>
 </div>
 
-  <div class ="list-group-contact">
     <%@contacts.each do |contact|%>
+    <div class ="list-group-contact-show">
       <li>Contact</li>
       <li class =""><%= contact.name%></li>
       <li class =" "><%=contact.position%></li>
@@ -40,6 +41,8 @@
       <li class ="list-group-item "><%= link_to "Edit", edit_company_contact_path(@company.id,contact.id) %></li>
       <li class ="list-group-item "> <%= link_to "Delete", company_contact_path(@company.id,contact.id), method: "delete" %></li>
       <br>
+    </div>
     <% end %>
-  </div>
+</article>
+
 </article>

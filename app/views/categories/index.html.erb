@@ -2,7 +2,7 @@
 
   <article>
       <div class= "new-button">
-        <li class ="list-group-item new "> <%=link_to "Add a Category", new_category_path%></li>
+        <li class ="list-group-item"> <%=link_to "Add a Category", new_category_path%></li>
       </div>
       <div class= "cards">
     <% @categories.each do |category| %>
@@ -12,5 +12,4 @@
       <li class ="list-group-item"><%= link_to "Delete", category_path(category), method: "delete" %></li>
     </ul>
     <% end %>
-  </div>
 </article>

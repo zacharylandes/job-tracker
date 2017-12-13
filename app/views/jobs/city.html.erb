@@ -1,8 +1,12 @@
 <h3>All jobs in <%=@job_city.first.city%> </h3>
 
+<div class = "show-container">
+  <div class = "shows">
 <%@job_city.each do |job|%>
-
-  <ul class="list-group list-group-job-sort">
-<li class = "cat-head"><%=job.title%> in <%=job.city%></li>
-<%end%>
-</ul>
+  <div class = "cards">
+    <ul class="list-group list-group-job-sort">
+      <li class = "cat-head"><%=job.title%> in <%=job.city%></li>
+      <%end%>
+    </ul>
+</div>
+  </div>

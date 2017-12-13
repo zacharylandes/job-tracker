@@ -1,6 +1,6 @@
-<h2>Edit your comment here!</h2>
-
-<div class="forms">
+<h3>Edit your comment here</h3>
+<div class = "show-container">
+  <div class = "shows">
     <%=form_for [@company, @contact] do |f| %>
       <%= f.label :name  %>
       <%= f.text_field :name  %>
@@ -10,4 +10,5 @@
       <%= f.text_field :email  %>
       <%= f.submit %>
     <% end %>
+</div>
 </div>

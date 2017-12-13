@@ -1,10 +1,9 @@
 class DashboardController < ApplicationController
 
   def index
-      # if params[:location]
-    # @company
+
     @jobs = Job.level_of_interest
-    @avg_at_company= Company.avg_at_company
+    @top_three_by_interest= Company.top_three_by_interest
     @locations = Job.locations
     render :index
 

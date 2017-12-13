@@ -8,7 +8,7 @@ describe Job do
         jobs2= create(:job,  company_id: company2.id)
         jobs3= create(:job,  company_id: company2.id)
 
-        expect(Job.level_of_interest).to eq({9=>1, 10=>1, 11=>1})
+        expect(Job.level_of_interest).to eq( {27=>1, 26=>1, 28=>1})
     end
     it '.locations' do
         company1,company2,company3,company4 = create_list(:company,4)
@@ -19,6 +19,7 @@ describe Job do
         expect(Job.locations).to eq(  {"Sacramento"=>3})
     end
   end
+
   describe "validations" do
     context "invalid attributes" do
       it "is invalid without a title" do

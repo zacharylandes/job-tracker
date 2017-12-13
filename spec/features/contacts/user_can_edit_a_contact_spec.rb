@@ -12,7 +12,7 @@ describe "User edits an existing contact" do
 
 
     expect(current_path).to eq("/companies/1/contacts/2/edit")
-    expect(page).to have_content("Edit your comment here!")
+    expect(page).to have_content("Edit your comment here")
     fill_in "contact[name]", with: "Flippity Flopper"
 
       click_on "Update Contact"
