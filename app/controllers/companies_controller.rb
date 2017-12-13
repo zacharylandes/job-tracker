@@ -1,6 +1,8 @@
 class CompaniesController < ApplicationController
   def index
     @companies = Company.all
+    # @ordered = @companies.ordered
+
   end
 
   def new
@@ -18,7 +20,6 @@ class CompaniesController < ApplicationController
   end
 
   def show
-
     company = Company.find(params[:id])
     redirect_to company_jobs_path(company)
   end

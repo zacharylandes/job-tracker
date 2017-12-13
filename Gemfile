@@ -40,6 +40,8 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'rspec-rails'
+  gem 'database_cleaner'
+  gem 'factory_bot_rails'
   gem 'launchy'
   gem 'database_cleaner'
 end

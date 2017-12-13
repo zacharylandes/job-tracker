@@ -16,7 +16,6 @@
 
 body{
   background-image: url('darkshadows.gif');
-  /*background-color: #31333B;*/
   color: #B3B3B3;
 font-family: 'Alegreya Sans SC', sans-serif;}
 a{
@@ -136,7 +135,7 @@ color: black}
     width:30em;
     background-color: black;
     border-radius: 10px;
-    padding:10px;
+    /*padding:10px;*/
     margin: 20px;
     height: 440px;
     display: flex;
@@ -149,7 +148,7 @@ color: black}
 .list-group-job label{
   color:white;
 }
-ul {
+ul, li {
   list-style-type: none;
 }
 .list-group-jobs {

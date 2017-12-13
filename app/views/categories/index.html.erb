@@ -1,18 +1,16 @@
 <h3>All Categories</h3>
 
-<article>
-    <div class= "new-button">
-      <li class ="list-group-item new "> <%=link_to "Add a Category", new_category_path%></li>
-    </div>
-    <div class= "cards">
-  <% @categories.each do |category| %>
-  <ul class="list-group list-group-cat">
-    <!-- <li class=categroy_<%= category.id %>></li> -->
-    <li  class = "cat-head"> <%= link_to category.name, category_path(category) %>: </li>
-    <li class ="list-group-item"><%= link_to "Edit", edit_category_path(category) %></li>
-    <li class ="list-group-item"><%= link_to "Delete", category_path(category), method: "delete" %></li>
-  </ul>
-  <% end %>
-</div>
-
+  <article>
+      <div class= "new-button">
+        <li class ="list-group-item new "> <%=link_to "Add a Category", new_category_path%></li>
+      </div>
+      <div class= "cards">
+    <% @categories.each do |category| %>
+    <ul class="list-group list-group-cat">
+      <li  class = "cat-head"> <%= link_to category.name, category_path(category) %>: </li>
+      <li class ="list-group-item"><%= link_to "Edit", edit_category_path(category) %></li>
+      <li class ="list-group-item"><%= link_to "Delete", category_path(category), method: "delete" %></li>
+    </ul>
+    <% end %>
+  </div>
 </article>

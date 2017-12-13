@@ -1,18 +1,16 @@
 <h3>All Companies</h3>
-<div class= "new-button">
-  <li class ="list-group-item new"> <%=link_to "Add a Company", new_company_path%></li>
-</div>
-<div class= "cards">
-
 <article>
-  <% @companies.each do |company| %>
-  <ul class="list-group list-group-cat">
-    <li class=company_<%= company.id %>></li>
-    <li class ="cat-head"> <%= link_to company.name, company_path(company) %>: </li>
-    <li class ="list-group-item"><%= link_to "Edit", edit_company_path(company) %></li>
-    <li class ="list-group-item"><%= link_to "Delete", company_path(company), method: "delete" %></li>
-  </ul>
-  <% end %>
-</div>
+  <div class= "new-button">
+    <li class ="list-group-item new"> <%=link_to "Add a Company", new_company_path%></li>
+  </div>
+  <div class= "cards">
 
+    <% @companies.each do |company| %>
+    <ul class="list-group list-group-cat">
+      <li class ="cat-head"> <%= link_to company.name, company_path(company) %>: </li>
+      <li class ="list-group-item"><%= link_to "Edit", edit_company_path(company) %></li>
+      <li class ="list-group-item"><%= link_to "Delete", company_path(company), method: "delete" %></li>
+    </ul>
+    <% end %>
+  </div>
 </article>

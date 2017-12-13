@@ -1,6 +1,24 @@
 require 'rails_helper'
 
 describe Job do
+  describe 'class methods' do
+    it '.level_of_interest' do
+        company1,company2,company3,company4 = create_list(:company,4)
+        jobs1= create(:job,  company_id: company1.id)
+        jobs2= create(:job,  company_id: company2.id)
+        jobs3= create(:job,  company_id: company2.id)
+
+        expect(Job.level_of_interest).to eq({9=>1, 10=>1, 11=>1})
+    end
+    it '.locations' do
+        company1,company2,company3,company4 = create_list(:company,4)
+        jobs1= create(:job,  company_id: company1.id)
+        jobs2= create(:job,  company_id: company2.id)
+        jobs3= create(:job,  company_id: company2.id)
+
+        expect(Job.locations).to eq(  {"Sacramento"=>3})
+    end
+  end
   describe "validations" do
     context "invalid attributes" do
       it "is invalid without a title" do

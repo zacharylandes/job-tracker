@@ -1,6 +1,16 @@
 class JobsController < ApplicationController
 
   def index
+    if params[:location]
+      @job_city =Job.where(:city => params[:location])
+      render :city
+    elsif params[:sort] == "location"
+      @job = Job.order(:city)
+      render :jobs_by_city
+    elsif params[:sort] == "interest"
+      @job_interest = Job.order(:level_of_interest)
+      render :interest
+    end
     @company = Company.find(params[:company_id])
     @jobs = @company.jobs
     @contact= Contact.new()
@@ -62,6 +72,5 @@ class JobsController < ApplicationController
   def job_params
     params.require(:job).permit(:title, :description, :level_of_interest, :city, :category_id)
   end
-
 
 end

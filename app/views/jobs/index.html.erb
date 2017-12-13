@@ -34,10 +34,11 @@
   <div class ="list-group-contact">
     <%@contacts.each do |contact|%>
       <li>Contact</li>
-      <li class =""><%=contact.name%></li>
+      <li class =""><%= contact.name%></li>
       <li class =" "><%=contact.position%></li>
       <li class =" "><%=contact.email%></li>
-      <li class ="list-group-item "> <%= link_to "Delete", company_contact_path(@company,contact), method: "delete" %></li>
+      <li class ="list-group-item "><%= link_to "Edit", edit_company_contact_path(@company.id,contact.id) %></li>
+      <li class ="list-group-item "> <%= link_to "Delete", company_contact_path(@company.id,contact.id), method: "delete" %></li>
       <br>
     <% end %>
   </div>

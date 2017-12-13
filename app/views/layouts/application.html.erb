@@ -3,7 +3,7 @@
 <head>
   <title>JobTracker</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link href='https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400,300' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:200,300' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -12,7 +12,8 @@
   <nav class="breadcrumb">
     <a class="breadcrumb-item" href="/">Home  /</a>
     <a class="breadcrumb-item" href="/companies">Companies     /</a>
-    <a class="breadcrumb-item" href="/categories">Categories</a>
+    <a class="breadcrumb-item" href="/categories">Categories  /</a>
+    <a class="breadcrumb-item" href="/dashboard">Dashboard /</a>
 
   </nav>
   <% flash.each do |name, msg| %>

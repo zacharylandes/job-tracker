@@ -1,34 +1,36 @@
   <h3><%= @job.title %></h3>
 <div class = "job-shows">
-    <ul class="list-group list-group-job">
-      <li  class = "">Description </li>
-      <li class ="list-group-item job-button"><%= @job.description %></li>
-      <li>Level of interest</li>
+  <ul class="list-group list-group-job">
+    <li  class = "">Description </li>
+    <li class ="list-group-item job-button"><%= @job.description %></li>
+    <li>Level of interest</li>
 
-      <li class ="list-group-item job-button"> <%= @job.level_of_interest %></li>
-      <li>City</li>
+    <li class ="list-group-item job-button"> <%= @job.level_of_interest %></li>
+    <li>City</li>
 
-      <li class ="list-group-item job-button"><%= @job.city %></li>
-      <li>Company</li>
+    <li class ="list-group-item job-button"><%= @job.city %></li>
+    <li>Company</li>
 
-      <li class ="list-group-item job-button"><%= link_to @job.company.name, company_path(@job.company) %></li>
+    <li class ="list-group-item job-button"><%= link_to @job.company.name, company_path(@job.company) %></li>
 
-      <div class ="forms">
-        <%=form_for [@job, @comment] do |f| %>
-          <%= f.text_field :content  %>
-          <%= f.submit %>
-        <% end %>
-      </div>
+    <div class ="forms">
+      <%=form_for [@job, @comment] do |f| %>
+        <%= f.text_area :content  %>
+        <%= f.submit %>
+      <% end %>
+    </div>
 
-      <div class ="comment-show">
-        <%@comments.each do |comment|%>
-          <li>Created at</li>
-          <li class ="comment-time"><%=comment.created_at%></li>
-          <li>Comment</li>
-          <li class =" "><%=comment.content%></li>
-          <br>
-        <% end %>
-      </div>
+    <div class ="comment-show">
+      <%@comments.each do |comment|%>
+        <li>Created at</li>
+        <li class ="comment-time"><%=comment.created_at%></li>
+        <li>Comment</li>
+        <li class =""><%=comment.content%></li>
+        <li class =""><%= link_to "Edit", job_comment_path(@job,comment) %></li>
+        <li class =""> <%= link_to "Delete", job_comment_path(@job,comment), method: "delete" %></li>
+        <br>
+      <% end %>
+    </div>
 </ul>
 
 </div>

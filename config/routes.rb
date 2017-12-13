@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
+
 root to: 'companies#index'
   resources :companies do
 
     resources :jobs
     resources :contacts
 end
-resources :jobs do
+  resources :jobs do
  resources :comments
 end
   resources :categories
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -16,7 +18,7 @@ end
   # root 'welcome#index'
 
   # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+   resources :dashboard, only: [:index]
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

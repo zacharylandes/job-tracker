@@ -1,0 +1,8 @@
+<h3>All jobs in <%=@job_city.first.city%> </h3>
+
+<%@job_city.each do |job|%>
+
+  <ul class="list-group list-group-job-sort">
+<li class = "cat-head"><%=job.title%> in <%=job.city%></li>
+<%end%>
+</ul>
