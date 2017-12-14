@@ -1,22 +1,24 @@
 <h3>Dashboard</h3>
 <div class = "show-container">
-<div class="shows">
-  <p><h4>Job Count by Level of Interest</h4></p>
-      <% @jobs.each_pair do |interest,count| %>
-    <p>Number of Jobs with <strong><%=interest%> </strong> as a level of interest: <%=count%></p>
-      <%end%>
-</div>
-<div class="shows">
-  <p><h4>Top Three Companies by Average Interest</h4></p>
+  <div class="shows">
 
+    <p><h4>Job Count by Level of Interest</h4></p>
+        <% @jobs.each_pair do |interest,count| %>
+      <p>Number of Jobs with <strong><%=interest%> </strong> as a level of interest: <%=count%></p>
+        <%end%>
+  </div>
+
+  <div class="shows">
+    <p><h4>Top Three Companies by Average Interest</h4></p>
     <% @top_three_by_interest.each do |avg, company| %>
       <p><%= "#{company[0].name} has an average job interest of #{avg}"%></p>
     <% end %>
-</div>
-<div class="shows">
-<p><h4>Job Count by Location</h4></p>
-  <% @locations.each_pair do |location,amount| %>
-    <p> <%=link_to location,"/companies/1/jobs?location=#{location}" %> has <%=amount %> jobs</p>
-  <% end %>
-</div>
+  </div>
+
+  <div class="shows">
+    <p><h4>Job Count by Location</h4></p>
+    <% @locations.each_pair do |location,amount| %>
+      <p> <%=link_to location,"/companies/1/jobs?location=#{location}" %> has <%=amount %> jobs</p>
+    <% end %>
+  </div>
 </div>

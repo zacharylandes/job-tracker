@@ -1,10 +1,9 @@
 <div class = "show-container">
   <div class = "shows">
-
-<%= form_for @company do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.submit %>
-<% end %>
-</div>
+    <%= form_for @company do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name, required: true %>
+      <%= f.submit %>
+    <% end %>
+  </div>
 </div>

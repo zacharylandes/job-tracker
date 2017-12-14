@@ -9,7 +9,6 @@ describe "User sees one comment " do
 
 
     visit company_job_path(company,job)
-# save_and_open_page
     expect(page).to have_content("yo")
   end
 end

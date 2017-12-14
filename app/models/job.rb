@@ -12,4 +12,5 @@ class Job < ApplicationRecord
   def self.locations
     group(:city).order("count_id DESC").count(:id)
   end
+
 end

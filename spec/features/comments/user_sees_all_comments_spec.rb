@@ -10,8 +10,8 @@ describe "a user sees all comments" do
 
     visit company_job_path(company,job)
 
-  expect(page).to have_content("yo")
-  expect(page).to have_content("no")
+    expect(page).to have_content("yo")
+    expect(page).to have_content("no")
 
   end
 end

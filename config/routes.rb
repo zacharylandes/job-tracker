@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-root to: 'companies#index'
+root to: "dashboard#show"
+
   resources :companies do
 
     resources :jobs
@@ -9,6 +10,7 @@ end
   resources :jobs do
  resources :comments
 end
+
   resources :categories
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -8,7 +8,6 @@ describe "User edits an existing job" do
     job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver", category_id: 1)
 
     visit edit_company_job_path(company,job)
-    # byebug
 
     fill_in "job[title]", with: "Flippity Flopper"
     fill_in "job[description]", with: "Flops the flips"
@@ -19,6 +18,5 @@ describe "User edits an existing job" do
 
     expect(current_path).to eq("/companies/#{Company.last.id}/jobs/#{Job.last.id}")
     expect(page).to have_content("Flippity Flopper")
-    # expect(page).to_not have_content("ESPN")
   end
 end

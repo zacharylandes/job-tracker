@@ -10,7 +10,6 @@ describe "User deletes existing contact" do
 
 
     click_link "Delete"
-    # end
 
     expect(current_path).to eq("/companies/#{company.id}/jobs")
     expect(Contact.count).to eq(0)

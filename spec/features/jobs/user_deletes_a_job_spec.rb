@@ -8,9 +8,8 @@ describe "User deletes existing company" do
 
     visit company_jobs_path(company,job)
 
-# save_and_open_page
 
-      click_link "Delete"
+    click_link "Delete"
 
 
     expect(page).to have_content("Developer was successfully deleted!")

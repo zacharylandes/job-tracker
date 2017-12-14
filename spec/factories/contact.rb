@@ -3,7 +3,5 @@ FactoryBot.define do
     name "Jojo"
     position "Manager"
     company
-    # job
-    # c/ategory
   end
 end

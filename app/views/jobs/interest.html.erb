@@ -1,8 +1,12 @@
-<h3>All jobs by  level of interest</h3>
+<h3>All jobs by level of interest</h3>
 
 
-<%@job_interest.each do |job|%>
-  <ul class="list-group ">
-<li class = "cat-head"><%=job.title%> has an level of interest of  <%=job.level_of_interest%></li>
-<%end%>
-</ul>
+<div class = "show-container">
+  <div class = "shows" id="interest">
+    <%@job_interest.each do |job|%>
+      <ul class="list-group ">
+        <li class = "cat-head"><%=job.title%> has a level of interest of  <%=job.level_of_interest%></li>
+      </ul>
+    <%end%>
+  </div>
+</div>

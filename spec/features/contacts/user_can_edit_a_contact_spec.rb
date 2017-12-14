@@ -15,10 +15,9 @@ describe "User edits an existing contact" do
     expect(page).to have_content("Edit your comment here")
     fill_in "contact[name]", with: "Flippity Flopper"
 
-      click_on "Update Contact"
+    click_on "Update Contact"
 
     expect(page).to have_content("Flippity Flopper")
   end
-
 
 end

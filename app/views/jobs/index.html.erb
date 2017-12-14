@@ -1,7 +1,7 @@
 <h3>All Jobs for <strong><%= @company.name %></strong></h3>
 
+<article>
 
-<article >
   <div class = "new-button" >
     <li class = "list-group-item"> <%=link_to "New job", new_company_job_url%></li>
   </div>
@@ -14,35 +14,34 @@
         <li class ="list-group-item "> <%= link_to "Delete", company_job_path(job.company.id, job.id), method: "delete" %></li>
       </ul>
     <% end %>
-</div>
-
-<article class = 'contacts'>
-  <div class ="list-group-contact">
-    <h5>Create a contact for </h5>
-    <h5><%=@company.name%></h5>
-    <%=form_for [@company, @contact] do |f| %>
-      <%= f.label :name  %>
-      <%= f.text_field :name  %>
-      <%= f.label :position  %>
-      <%= f.text_field :position  %>
-      <%= f.label :email  %>
-      <%= f.text_field :email  %>
-      <%= f.submit %>
-    <% end %>
   </div>
-</div>
+
+  <article class = 'contacts'>
+    <div class ="list-group-contact">
+      <h5>Create a contact for </h5>
+      <h5><%=@company.name%></h5>
+      <%=form_for [@company, @contact] do |f| %>
+        <%= f.label :name  %>
+        <%= f.text_field :name, required: true  %>
+        <%= f.label :position  %>
+        <%= f.text_field :position, required: true  %>
+        <%= f.label :email  %>
+        <%= f.text_field :email,  required: true %>
+        <%= f.submit %>
+      <% end %>
+    </div>
 
     <%@contacts.each do |contact|%>
-    <div class ="list-group-contact-show">
-      <li>Contact</li>
-      <li class =""><%= contact.name%></li>
-      <li class =" "><%=contact.position%></li>
-      <li class =" "><%=contact.email%></li>
-      <li class ="list-group-item "><%= link_to "Edit", edit_company_contact_path(@company.id,contact.id) %></li>
-      <li class ="list-group-item "> <%= link_to "Delete", company_contact_path(@company.id,contact.id), method: "delete" %></li>
-      <br>
-    </div>
+      <div class ="list-group-contact-show">
+        <li>Contact</li>
+        <li class =""><%= contact.name%></li>
+        <li class =" "><%=contact.position%></li>
+        <li ><%=contact.email%></li>
+        <li class ="list-group-item "><%= link_to "Edit", edit_company_contact_path(@company.id,contact.id) %></li>
+        <li class ="list-group-item "> <%= link_to "Delete", company_contact_path(@company.id,contact.id), method: "delete" %></li>
+        <br>
+      </div>
     <% end %>
-</article>
 
+  </article>
 </article>

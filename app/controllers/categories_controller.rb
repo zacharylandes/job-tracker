@@ -15,14 +15,12 @@ class CategoriesController < ApplicationController
       redirect_to category_path(@category)
     else
       redirect_to categories_path
-
     end
   end
 
   def show
     @category = Category.find(params[:id])
     @job = Job.where(category_id: @category.id)
-    # redirect_to category_path(category)
   end
 
   def edit
@@ -43,11 +41,9 @@ class CategoriesController < ApplicationController
   def destroy
     category = Category.find(params[:id])
     category.destroy
-
     flash[:success] = "#{category.name} was successfully deleted!"
     redirect_to categories_path
   end
-
 
   private
 

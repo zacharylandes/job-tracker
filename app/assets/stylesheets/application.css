@@ -17,35 +17,26 @@
 body{
   background-image: url('darkshadows.gif');
   color: #B3B3B3;
-font-family: 'Alegreya Sans SC', sans-serif;}
+  font-family: 'Alegreya Sans SC', sans-serif;
+}
+
 a{
   text-decoration: none;
   color: #B3B3B3;
 }
+
 a:hover{
   text-decoration: none;
 }
-#company_list{
-  padding-left: 30px;
-}
+
+
 .new-button{
   display: flex;
   justify-content: center;
-  /*margin-left: 300px;*/
+}
 
-/*margin: auto;*/
-}
-#new_job{
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
-#new_job label{
-  margin: 0;
-}
-h3{
-  /*margin-left: 20px;*/
+
+h3, h1{
   text-align: center;
   border-bottom: 1px solid;
 }
@@ -85,35 +76,38 @@ input{
 }
 .contacts{
   display: flex;
-  /*justify-content: center;*/
-
 }
 .list-group-item a{
   color:black;
 }
 
 .breadcrumb{
+  justify-content: center;
+  flex-direction: row;
+  align-items:center;
   margin: 10px;
   background-color: #B3B3B3;
-  width: 33%;
+  width: 55%;
   height:20px;
   padding:0px;
 }
+
 .breadcrumb-item{
-padding-top:20px;
-margin-left: 10px;
-color: black}
+  padding-top:20px;
+  margin-left: 10px;
+  color: black
+}
 
 .new{
-    border-radius: 5px;
-    width:10em;
-    background-color: #B3B3B3;
-    margin:10px;
-    height: 20px;
-    display: flex;
-    flex-direction: column;
-    color:black;
-    margin-right: 52px;
+  border-radius: 5px;
+  width:10em;
+  background-color: #B3B3B3;
+  margin:10px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  color:black;
+  margin-right: 52px;
 }
 
 .list-group-cat{
@@ -133,8 +127,8 @@ color: black}
 
 .edit_contact input{
   background-color: black;
-
 }
+
 .list-group-contact{
   width:30em;
   background-color: black;
@@ -149,8 +143,8 @@ color: black}
   color: #B3B3B3;
   width:170px;
 }
+
 .list-group-contact-show{
-  /*width:40em;*/
   background-color: black;
   border-radius: 10px;
   padding:10px;
@@ -163,8 +157,8 @@ color: black}
   color: #B3B3B3;
   width:200px;
 }
+
 .list-group-comment-show{
-  /*width:40em;*/
   background-color: black;
   border-radius: 10px;
   padding:10px;
@@ -177,61 +171,58 @@ color: black}
   color: #B3B3B3;
   width:300px;
 }
+
 .list-group-job{
-    width:30em;
-    background-color: black;
-    border-radius: 10px;
-    /*padding:10px;*/
-    margin: 20px;
-    height: 440px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
-    color:black;
-    width:170px;
+  width:30em;
+  background-color: black;
+  border-radius: 10px;
+  margin: 20px;
+  height: 440px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  color:#B3B3B3;
+  width:170px;
 }
 .list-group-job label{
   color:white;
 }
+
 ul, li {
   list-style-type: none;
-
 }
 .list-group-jobs {
   text-align: center;
-    background-color: #B3B3B3;
-    border-radius: 10px;
-    padding:10px;
-    margin: 20px;
-    height: 680px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
-    color:black;
-    width:370px;
+  background-color: #B3B3B3;
+  border-radius: 10px;
+  padding:10px;
+  margin: 20px;
+  height: 680px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  color:black;
+  width:370px;
 }
 
 .job-button, .job-button a, input{
   background-color: #535661;
   color:white;
-
 }
 
 .forms{
   background-color: #535661;
-
 }
 .comment-time{
-font-size: 10px;}
+  font-size: 10px;
+}
 .comment-show{
-  /*background-color:  #535661;*/
   color: white;
   border-radius: 10px;
   text-align: center;
   padding: 20px;
-
 }
 .cards{
   display: flex;
@@ -239,6 +230,7 @@ font-size: 10px;}
   flex-wrap: wrap;
   align-items: center;
 }
+
 .job-shows{
   display: flex;
   justify-content: center;
@@ -249,20 +241,24 @@ select{
   justify-content: center;
   align-items: center;
 }
+
 .new_comment{
   display: flex;
   align-items: center;
   background-color: black;
 }
+
 .show-container{
   display: flex;
   justify-content: center;
   flex-direction: row;
   align-items:flex-start;
 }
+
 .shows a{
   color:black;
 }
+
 .shows{
   margin: 40px;
   background-color: #B3B3B3;
@@ -278,6 +274,20 @@ select{
 }
 
 .cat-head{
-
 margin-bottom: 10px;
+}
+
+#company_list{
+  padding-left: 30px;
+}
+
+#new_job{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+#new_job label{
+  margin: 0;
 }

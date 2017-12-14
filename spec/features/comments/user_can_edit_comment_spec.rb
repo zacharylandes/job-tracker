@@ -15,6 +15,5 @@ describe "User edits an existing comment" do
 
     expect(current_path).to eq("/companies/#{Company.last.id}/jobs/#{Job.last.id}")
     expect(page).to have_content("Flippity Flopper")
-    # expect(page).to_not have_content("ESPN")
   end
 end

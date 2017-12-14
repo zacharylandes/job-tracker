@@ -1,6 +1,5 @@
 class ContactsController < ApplicationController
 
-
   def new
     @contact = Contact.new()
   end
@@ -15,31 +14,28 @@ class ContactsController < ApplicationController
   end
 
   def edit
-
-    # @job = Job.find(params[:id])
     @company = Company.find(params[:company_id])
     @contact = Contact.find(params[:id])
   end
 
   def update
-      @company = Company.find(params[:company_id])
-      job = Job.where(:company_id => @company.id)
-      @contact = Contact.find(params[:id])
-      @contact.update(contact_params)
-      if @contact.save
-        flash[:success] = "contact updated!"
-        redirect_to company_jobs_path(@company, job, @contact)
-      else
-        render :edit
-      end
+    @company = Company.find(params[:company_id])
+    job = Job.where(:company_id => @company.id)
+    @contact = Contact.find(params[:id])
+    @contact.update(contact_params)
+    if @contact.save
+      flash[:success] = "contact updated!"
+      redirect_to company_jobs_path(@company, job, @contact)
+    else
+      render :edit
+    end
   end
 
   def destroy
-
-      company = Company.find(params[:company_id])
-      contact = Contact.find(params[:id])
-      contact.destroy
-      redirect_to company_jobs_path(company)
+    company = Company.find(params[:company_id])
+    contact = Contact.find(params[:id])
+    contact.destroy
+    redirect_to company_jobs_path(company)
   end
 
   private
