@@ -15,7 +15,7 @@
  */
 
 body{
-  background-image: url('darkshadows.gif');
+  background: image-url("darkshadows.gif") no-repeat center center fixed;
   color: #B3B3B3;
   font-family: 'Alegreya Sans SC', sans-serif;
 }
