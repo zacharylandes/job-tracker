@@ -15,6 +15,7 @@
 
       <%= f.label :category %>
       <%= f.select :category_id, options_for_select( @category.collect{ |category| ["#{category.name}", category.id] } ), class: 'form-control' %>
+
       <%= f.submit %>
     <% end %>
   </div>
