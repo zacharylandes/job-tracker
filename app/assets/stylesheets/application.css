@@ -15,7 +15,7 @@
  */
 
 body{
-    background-image: url("darkshadows.gif");
+    background-image: url(image_path("darkshadows.gif"));
 
   /* background: url('darkshadows.gif'); */
   color: #B3B3B3;
