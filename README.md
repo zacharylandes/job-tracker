@@ -4,5 +4,5 @@ Job Tracker is a Rails app that allows users to create a company, add jobs for t
 
 Features 
 
-CRUD functionality for - Jobs, Companies, Categories, Comments, and Contacts
+CRUD functionality for - Jobs, Companies, Categories, Comments, and Contacts </br>
 Analytics for-  Job by level of interest and location, top companies by job satisfaction
