@@ -15,9 +15,9 @@
  */
 
 body{
-    /* background: image-url("darkshadows.gif") no-repeat center center fixed; */
+    background: image-url("darkshadows.gif");
 
-  background: url('darkshadows.gif');
+  /* background: url('darkshadows.gif'); */
   color: #B3B3B3;
   font-family: 'Alegreya Sans SC', sans-serif;
 }
